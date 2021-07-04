@@ -1,20 +1,27 @@
 ## 環境構築
-1. mkdir my-nuxtavel（任意のディレクトリ名）
-2. cd my-nuxtavel
-3. git clone 
-4. cp backend/.env.local backend/.env
-5. docker-compose exec backend bash
-6. composer install
-7. exit
-8. docker-compose.ymlの38行目`command: yarn dev`をコメントアウト
-9. docker-compose exec frontend sh
-10. yarn
-11. exit
-12. docker-compose down -v
-13. docker-compose.ymlの38行目`command: yarn dev`をコメントを外す
-14. docker-compose up -d --build
-15. http://localhost:3000/ にアクセスし、「APIテスト」ボタンが表示されることを確認
-16. 「APIテスト」ボタンをクリックすると、「success!! this is a message from laravel」が表示されることを確認
+### 下記1~5を続けて実行する
+1. プロジェクトクローン
+    1. mkdir my-nuxtavel（任意のディレクトリ名）
+    2. cd my-nuxtavel
+    3. git clone https://github.com/kota-es/my-nuxtavel.git .
+    4. docker-compose up -d --build
+2. laravelモジュールインストールなど
+    1. cp backend/.env.local backend/.env
+    2. docker-compose exec backend bash
+    3. composer install
+    4. exit
+3. Nuxtモジュールインストールなど
+    1. docker-compose.ymlの38行目`command: yarn dev`をコメントアウト
+    2. docker-compose exec frontend sh
+    3. yarn
+    4. exit
+4. 再起動
+    1. docker-compose down -v
+    2. docker-compose.ymlの38行目`command: yarn dev`をコメントを外す
+    3. docker-compose up -d --build
+5. 通信確認
+    1. http://localhost:3000/ にアクセスし、「APIテスト」ボタンが表示されることを確認
+    2. 「APIテスト」ボタンをクリックすると、「success!! this is a message from laravel」が表示されることを確認
 
 ## コンテナ起動・終了
 - 起動：`docker-compose up -d --build`
